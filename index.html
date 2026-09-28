@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3, #8e7dff);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 30px 20px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .page.active {
+            display: flex;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(12px);
+            border-radius: 25px;
+            padding: 40px 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            font-size: clamp(40px, 10vw, 75px);
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .cake {
+            font-size: 90px;
+            animation: bounce 1.5s infinite;
+            margin: 20px;
+        }
+
+        button {
+            border: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            background: white;
+            color: #e84393;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            border-radius: 15px;
+            border: 3px solid rgba(255,255,255,0.6);
+        }
+
+        .note {
+            background: rgba(255,255,255,0.18);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .gift {
+            font-size: 100px;
+            cursor: pointer;
+            animation: shake 1.5s infinite;
+            margin: 25px;
+        }
+
+        .final {
+            font-size: 28px;
+            line-height: 1.6;
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 25px;
+            animation: floatUp 5s linear infinite;
+            bottom: -30px;
+            pointer-events: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes shake {
+            0%,100% { transform: rotate(0); }
+            25% { transform: rotate(-8deg); }
+            75% { transform: rotate(8deg); }
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+
+        @media(max-width:600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img {
+                height: 250px;
+            }
+
+            .card {
+                padding: 30px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PAGE 1 -->
+    <section class="page active" id="page1">
+        <div class="card">
+
+            <div class="cake">🎂</div>
+
+            <h1>Happy Birthday!</h1>
+
+            <h2>Dear Mansii ❤️</h2>
+
+            <p>
+                Today is all about YOU! ✨
+            </p>
+
+            <button onclick="nextPage(2)">
+                Start the Surprise 💝
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- PAGE 2 -->
+    <section class="page" id="page2">
+        <div class="card">
+
+            <h2>📸 Our Memories</h2>
+
+            <p>Some beautiful moments to remember forever ❤️</p>
+
+            <div class="gallery">
+
+                <img src="IMG-1.jpg" alt="Memory 1">
+
+                <img src="IMG-2.jpg" alt="Memory 2">
+
+                <img src="IMG-3.jpg" alt="Memory 3">
+
+                <img src="IMG-4.jpg" alt="Memory 4">
+
+            </div>
+
+            <button onclick="nextPage(3)">
+                Next 💌
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- PAGE 3 -->
+    <section class="page" id="page3">
+        <div class="card">
+
+            <h2>💌 A Special Note</h2>
+
+            <div class="note">
+Dear Mansii,
+
+Wishing you the happiest birthday! 🥳
+
+May your life always be filled with happiness,
+beautiful memories, success and lots of love.
+
+Keep smiling, keep shining and keep being
+the amazing person you are. ❤️
+
+I hope this little surprise makes your birthday
+a little more special.
+
+Happy Birthday once again! 🎂✨
+
+With lots of love,
+Your Friend ❤️
+            </div>
+
+            <button onclick="nextPage(4)">
+                One More Surprise 🎁
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- PAGE 4 -->
+    <section class="page" id="page4">
+        <div class="card">
+
+            <h2>🎁 Your Surprise</h2>
+
+            <p>
+                Something special is waiting for you...
+            </p>
+
+            <div class="gift" onclick="surprise()">
+                🎁
+            </div>
+
+            <p id="surpriseText">
+                Click the gift!
+            </p>
+
+            <button onclick="nextPage(5)">
+                Final Message ❤️
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- PAGE 5 -->
+    <section class="page" id="page5">
+        <div class="card">
+
+            <div class="cake">🎉</div>
+
+            <h1>Happy Birthday ❤️</h1>
+
+            <p class="final">
+                May every new year of your life bring
+                more happiness, more adventures,
+                more memories and more reasons to smile. ✨
+                <br><br>
+                Never stop shining! 🌟
+                <br><br>
+                With lots of love ❤️
+            </p>
+
+            <button onclick="nextPage(1)">
+                Start Again 🔄
+            </button>
+
+        </div>
+    </section>
+
+
+    <script>
+
+        function nextPage(pageNumber) {
+
+            document.querySelectorAll(".page").forEach(function(page) {
+                page.classList.remove("active");
+            });
+
+            document.getElementById("page" + pageNumber)
+                .classList.add("active");
+
+            window.scrollTo(0, 0);
+        }
+
+
+        function surprise() {
+
+            document.getElementById("surpriseText").innerHTML =
+                "🎉 SURPRISE! 🎉<br><br>" +
+                "You deserve all the happiness in the world! ❤️";
+
+            createConfetti();
+        }
+
+
+        function createConfetti() {
+
+            for(let i = 0; i < 60; i++) {
+
+                const confetti = document.createElement("div");
+
+                confetti.innerHTML = "🎊";
+
+                confetti.style.position = "fixed";
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.top = "-20px";
+                confetti.style.fontSize = "25px";
+                confetti.style.zIndex = "9999";
+
+                document.body.appendChild(confetti);
+
+                confetti.animate(
+                    [
+                        { transform: "translateY(0) rotate(0deg)" },
+                        { transform: "translateY(110vh) rotate(720deg)" }
+                    ],
+                    {
+                        duration: 3000 + Math.random() * 2000,
+                        easing: "linear"
+                    }
+                );
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+
+        // Floating hearts
+        setInterval(function() {
+
+            const heart = document.createElement("div");
+
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            document.body.appendChild(heart);
+
+            setTimeout(function() {
+                heart.remove();
+            }, 5000);
+
+        }, 700);
+
+    </script>
+
+</body>
+</html>
